@@ -1,0 +1,29 @@
+.comp {
+    // Estilos para o componente pai
+
+    &__title {}
+
+    &__description {}
+
+    &__count {}
+
+    @media screen and (min-width: 768px) {
+        // Estilos para o componente pai
+
+        &__title {}
+
+        &__description {}
+
+        &__count {}
+    }
+
+    @media screen and (min-width: 1200px) {
+        // Estilos para o componente pai
+
+        &__title {}
+
+        &__description {}
+
+        &__count {}
+    }
+}
