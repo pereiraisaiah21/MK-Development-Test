@@ -13,7 +13,9 @@ import BiShoppingBag from "../../assets/ShoppingBag.png"
  * 
  * @returns {JSX.Element} O componente renderizado.
  */
-const Product = () => {
+const Product = ({
+    isCart
+}) => {
 
     const unit =
     {
@@ -24,9 +26,8 @@ const Product = () => {
         "price": 2000.1
     }
 
-
     return (
-        <div className="product">
+        <div className={`product ${isCart ? "product__cart" : ""}`}>
             <div className="product__image">
                 <img src="https://placeholder.co/200" alt="" srcset="" />
             </div>
@@ -34,17 +35,42 @@ const Product = () => {
                 <div className="product__name">
                     {unit.brand} {unit.name}
                 </div>
-                <div className="product__price">
-                    {unit.price}
-                </div>
-                <div className="product__description">
-                    {unit.description}
-                </div>
+
+                {
+                    !isCart
+                        ?
+                        <>
+                            <div className="product__price">
+                                {unit.price}
+                            </div>
+                            <div className="product__description">
+                                {unit.description}
+                            </div>
+                        </>
+                        :
+                        null
+                }
             </div>
-            <div className="product__buy">
-                <img src={BiShoppingBag} />
-                Comprar
-            </div>
+            {
+                !isCart
+                    ?
+                    <button className="product__buy">
+                        <img src={BiShoppingBag} />
+                        Comprar
+                    </button>
+                    :
+                    <div className="product__quantity">
+                        <div className="product__adder">
+                            <button>-</button>
+                            <span>0</span>
+                            <button>+</button>
+                        </div>
+                        <span className="product__price">
+                            R$ 200,00
+                        </span>
+                    </div>
+
+            }
         </div>
     )
 }

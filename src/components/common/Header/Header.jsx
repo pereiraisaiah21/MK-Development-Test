@@ -1,5 +1,6 @@
 import React from 'react'
 import CartIcon from "../../../assets/Cart.png"
+import Product from '../../Product/Product'
 
 
 /**
@@ -17,7 +18,7 @@ import CartIcon from "../../../assets/Cart.png"
 const Header = () => {
     return (
         <header className="header">
-            <div className="container">
+            <div className="header__container">
                 <div className="header__content">
                     <div className="header__logo">
                         <img src="/public/images/Logo.png" alt="Logo" />
@@ -27,6 +28,36 @@ const Header = () => {
                         <span>0</span>
                     </div>
                 </div>
+            </div>
+
+
+            <div className="cart">
+                <header className="cart__header">
+                    <span>
+                        Carrinho<br /> de compras
+                    </span>
+                    <button>
+                        X
+                    </button>
+                </header>
+                <section className="cart__products">
+
+                    <Product isCart={true} />
+
+                </section>
+                <footer className="cart__footer">
+                    <div className="cart__total">
+                        <span>
+                            Total:
+                        </span>
+                        <span>
+                            R$ 0,00
+                        </span>
+                    </div>
+                    <button className="cart__finish">
+                        Finalizar compra
+                    </button>
+                </footer>
             </div>
         </header>
     )
