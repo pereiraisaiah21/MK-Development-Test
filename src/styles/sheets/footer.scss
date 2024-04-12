@@ -1,0 +1,128 @@
+.footer {
+    background-color: #e2e1e1;
+    color: #333;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+
+    &__newsletter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(29, 46, 78);
+        padding: 2rem 1rem;
+        border-radius: 20px;
+        gap: 1rem;
+
+        @media(max-width: 768px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__newsletter-form {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 1rem 2rem;
+        border-radius: 20px;
+        width: 60%;
+    }
+
+    &__newsletter-text {
+        color: white;
+        width: 40%;
+        font-weight: 800;
+        font-size: 1.5rem;
+    }
+
+
+    &__newsletter-input {
+        flex-grow: 1;
+        border-radius: 10px;
+        padding: .5rem 1rem;
+    }
+
+    &__newsletter-text,
+    &__newsletter-form {
+
+        @media(max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &__newsletter-button {
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        background-color: rgb(29, 46, 78);
+        color: white;
+    }
+
+    &__newsletter-input,
+    &__newsletter-button {
+        margin-right: 10px;
+    }
+
+    &__pages {
+        display: flex;
+        padding: 2rem 1rem 1rem;
+
+        @media(max-width: 768px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__pages-list {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+
+        a {
+            color: #333;
+            text-decoration: unset;
+            font-size: .9rem;
+        }
+    }
+
+    &__social-icons {
+        font-size: 20px;
+        margin-left: auto;
+        display: inline-flex;
+        gap: 1.5rem;
+
+        svg {
+            color: #333;
+        }
+
+        @media(max-width: 768px) {
+            margin-left: unset;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #fff;
+        padding: 2rem 1rem 1rem;
+        font-size: .8rem;
+    }
+
+    &__rights,
+    &__terms {
+        flex-grow: 1;
+    }
+
+    &__terms {
+        display: inline-flex;
+        justify-content: flex-end;
+        column-gap: 1rem;
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    }
+
+    &__logo {
+        font-weight: bold;
+    }
+}

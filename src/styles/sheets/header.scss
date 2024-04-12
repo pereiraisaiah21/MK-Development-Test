@@ -1,0 +1,33 @@
+.header {
+    width: 100%;
+    height: 101px;
+
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    background-color: #0F52BA;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 65px;
+        color: #fff;
+        max-width: 1440px;
+    }
+
+    &__logo {
+        flex-grow: .1;
+
+        img {
+            max-width: 90px;
+            height: auto;
+        }
+    }
+
+
+    &__cart {
+        img {}
+        span {}
+    }   
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Product from '../../components/Product/Product'
 
 /**
  * Página Home
@@ -21,8 +20,10 @@ const Home = ({
     location
 }) => {
     return (
-        <div className="home">
-            <Product />
+        <div className="pagina">
+            <h1 className="pagina__title">{pageTitle}</h1>
+            <p className="pagina__description">{pageDescription}</p>
+            {/* Conteúdo da página */}
         </div>
     )
 }

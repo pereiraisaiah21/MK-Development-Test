@@ -2,7 +2,7 @@ import React from 'react'
 import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa"
 
 /**
- * Componente Footer
+ * Componente footer
  * 
  * Descrição: Este componente  é responsável por renderizar o rodapé.
  * 
@@ -15,25 +15,26 @@ import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa"
  */
 const Footer = () => {
     return (
-        <footer className="Footer">
+        <footer className="footer">
             <div className="container">
-                <div className="Footer__newsletter">
-                    <div className="Footer__newsletter-text">
+                <p>MKS sistemas © Todos os direitos reservados</p>
+                {/* <div className="footer__newsletter">
+                    <div className="footer__newsletter-text">
                         Receba nossas novidades assinando a newsletter!
                     </div>
-                    <div className="Footer__newsletter-form">
-                        <input type="email" className="Footer__newsletter-input" placeholder="Seu e-mail" />
-                        <button className="Footer__newsletter-button">Assinar</button>
+                    <div className="footer__newsletter-form">
+                        <input type="email" className="footer__newsletter-input" placeholder="Seu e-mail" />
+                        <button className="footer__newsletter-button">Assinar</button>
                     </div>
                 </div>
-                <div className="Footer__pages">
-                    <div className="Footer__pages-list">
+                <div className="footer__pages">
+                    <div className="footer__pages-list">
                         <a href="/">Página 1</a>
                         <a href="/produtos">Página 2</a>
                         <a href="/contato">Página 3</a>
                         <a href="/sobre">Página 4</a>
                     </div>
-                    <div className="Footer__social-icons">
+                    <div className="footer__social-icons">
                         <a href="">
                             <FaTwitter />
                         </a>
@@ -45,14 +46,14 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
-                <div className="Footer__bottom">
-                    <div className="Footer__rights">© 2024 Todos os direitos reservados</div>
-                    <div className="Footer__logo">Logo</div>
-                    <div className="Footer__terms">
+                <div className="footer__bottom">
+                    <div className="footer__rights">© 2024 Todos os direitos reservados</div>
+                    <div className="footer__logo">Logo</div>
+                    <div className="footer__terms">
                         <a href="/privacidade">Termos de Privacidade</a>
                         <a href="/politicas">Políticas</a>
                     </div>
-                </div>
+                </div> */}
             </div>
         </footer>
     )
