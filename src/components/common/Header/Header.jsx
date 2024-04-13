@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { useSelector } from 'react-redux'
@@ -20,6 +20,15 @@ import Product from '../../Product/Product'
 const Header = () => {
 
     const cart = useSelector(state => state.cart)
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleCart = () => {
+        setIsOpen(!isOpen)
+    }
+
+    const calculateTotal = () => {
+        return cart.items.reduce((total, item) => total + (item.price * item.quantity), 0)
+    }
 
     return (
         <motion.header className="header" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -29,42 +38,43 @@ const Header = () => {
                     <div className="header__logo">
                         MKS sistemas
                     </div>
-                    <motion.div className="header__cart" whileHover={{ scale: 1.1 }}>
+                    <motion.div className="header__cart" whileHover={{ scale: 1.1 }} onClick={toggleCart}>
                         <img src={CartIcon} />
-                        <span>0</span>
+                        <span>{cart.items.length}</span>
                     </motion.div>
                 </div>
             </div>
 
-
-            <motion.div className="cart" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                <header className="cart__header">
-                    <span>
-                        Carrinho<br /> de compras
-                    </span>
-                    <button>
-                        X
-                    </button>
-                </header>
-                <section className="cart__products">
-                    {cart.items.map(item => (
-                        <Product key={item.id} product={item} isCart={true} />
-                    ))}
-                </section>
-                <footer className="cart__footer">
-                    <div className="cart__total">
+            {isOpen && (
+                <motion.div className="cart" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <header className="cart__header">
                         <span>
-                            Total:
+                            Carrinho<br /> de compras
                         </span>
-                        <span>
-                            R$ 0,00
-                        </span>
-                    </div>
-                    <motion.button className="cart__finish" whileHover={{ scale: 1.1 }}>
-                        Finalizar compra
-                    </motion.button>
-                </footer>
-            </motion.div>
+                        <button onClick={toggleCart}>
+                            X
+                        </button>
+                    </header>
+                    <section className="cart__products">
+                        {cart.items.map(item => (
+                            <Product key={item.id} product={item} isCart={true} />
+                        ))}
+                    </section>
+                    <footer className="cart__footer">
+                        <div className="cart__total">
+                            <span>
+                                Total:
+                            </span>
+                            <span>
+                                R$ {calculateTotal().toFixed(2).replace(".", ",")}
+                            </span>
+                        </div>
+                        <motion.button className="cart__finish" whileHover={{ scale: 1.1 }}>
+                            Finalizar compra
+                        </motion.button>
+                    </footer>
+                </motion.div>
+            )}
         </motion.header>
     )
 }
