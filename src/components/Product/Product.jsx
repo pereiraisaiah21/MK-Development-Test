@@ -56,7 +56,7 @@ const Product = ({
             </div>
             <div className="product__info">
                 <div className="product__name">
-                    {product?.brand} {product?.name}
+                    {product?.name}
                 </div>
 
                 {
@@ -77,7 +77,7 @@ const Product = ({
             {
                 !isCart
                     ?
-                    <motion.button className="product__buy" onClick={handleAddToCart} whileHover={{ scale: 1.1 }}>
+                    <motion.button className="product__buy" onClick={handleAddToCart} whileHover={{ scale: 1.0 }}>
                         <img src={BiShoppingBag} />
                         Comprar
                     </motion.button>
