@@ -1,5 +1,8 @@
 import React from 'react'
+import { useQuery } from 'react-query'
+
 import Product from '../../components/Product/Product'
+import { fetchProducts } from '../../services/api'
 
 /**
  * Página Home
@@ -20,9 +23,28 @@ const Home = ({
     match,
     location
 }) => {
+
+    const { data, isLoading, isError } = useQuery('products', fetchProducts)
+
+    console.log(data)
+
+    if (isLoading) {
+        return <div>Carregando...</div>
+    }
+
+    if (isError) {
+        return <div>Ocorreu um erro ao buscar os produtos.</div>
+    }
+
     return (
         <div className="home">
-            <Product />
+            <div className="home__products">
+                {
+                    data.products.map(product => (
+                        <Product key={product.id} product={product} isCart={false} />
+                    ))
+                }
+            </div>
         </div>
     )
 }
