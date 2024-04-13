@@ -36,7 +36,7 @@ const Header = () => {
             <div className="header__container">
                 <div className="header__content">
                     <div className="header__logo">
-                        MKS sistemas
+                        <b>MKS</b> Sistemas
                     </div>
                     <motion.div className="header__cart" whileHover={{ scale: 1.1 }} onClick={toggleCart}>
                         <img src={CartIcon} />

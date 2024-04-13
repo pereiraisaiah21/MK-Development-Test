@@ -33,11 +33,11 @@
 
     &__footer {
         color: white;
-        padding: 3rem;
     }
-
+    
     &__total {
         display: flex;
+        padding: 3rem;
         justify-content: space-between;
         font-size: 28px;
         font-weight: bold;
@@ -48,5 +48,8 @@
         text-align: center;
         border: none;
         font-size: 28px;
+        width: 100%;
+        color: white;
+        padding: 2rem;
     }
 }

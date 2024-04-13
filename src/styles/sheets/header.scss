@@ -18,16 +18,31 @@
 
     &__logo {
         flex-grow: .1;
+        font-size: 20px;
 
-        img {
-            max-width: 90px;
-            height: auto;
+        b {
+            font-size: 40px;
+            margin-right: 5px;
         }
     }
 
 
     &__cart {
-        img {}
-        span {}
+        background-color: white;
+        padding: 14px 15px;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 8px;
+        width: 90px;
+        img {
+            width: 19px;
+            margin-right: 5px;
+        }
+        span {
+            font-weight: bold;
+            font-size: 18px;
+        }
     }   
 }
