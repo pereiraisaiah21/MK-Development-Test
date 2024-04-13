@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BiShoppingBag from "../../assets/ShoppingBag.png"
+import { motion } from 'framer-motion'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/actions/cartActions'
 
 /**
  * Componente product
@@ -14,26 +18,45 @@ import BiShoppingBag from "../../assets/ShoppingBag.png"
  * @returns {JSX.Element} O componente renderizado.
  */
 const Product = ({
+    product,
     isCart
 }) => {
 
-    const unit =
-    {
-        "id": 1,
-        "name": "iPhone X 128 GB",
-        "brand": "Apple",
-        "description": "O Apple iPhone X é um smartphone iOS avançado e abrangente em todos os pontos de vista com algumas características excelentes",
-        "price": 2000.1
+    const cart = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+    const [quantity, setQuantity] = useState(1)
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product))
     }
 
+    const handleDecrement = () => {
+        if (quantity > 0) {
+            setQuantity(prevQuantity => prevQuantity - 1)
+        }
+    }
+
+    const handleRemoveFromCart = () => {
+        dispatch(removeFromCart(product.id))
+    }
+
+    const handleIncrement = () => {
+        setQuantity(prevQuantity => prevQuantity + 1)
+    }
+
+    // Just test
+    useEffect(() => {
+        console.log('Itens no carrinho:', cart.items)
+    }, [cart.items])
+
     return (
-        <div className={`product ${isCart ? "product__cart" : ""}`}>
+        <motion.div className={`product ${isCart ? "product__cart" : ""}`} whileHover={{ scale: 1.1 }}>
             <div className="product__image">
-                <img src="https://placeholder.co/200" alt="" srcset="" />
+                <img src={product?.photo} alt="" srcset="" />
             </div>
             <div className="product__info">
                 <div className="product__name">
-                    {unit.brand} {unit.name}
+                    {product?.brand} {product?.name}
                 </div>
 
                 {
@@ -41,10 +64,10 @@ const Product = ({
                         ?
                         <>
                             <div className="product__price">
-                                {unit.price}
+                                {product?.price}
                             </div>
                             <div className="product__description">
-                                {unit.description}
+                                {product?.description}
                             </div>
                         </>
                         :
@@ -54,25 +77,26 @@ const Product = ({
             {
                 !isCart
                     ?
-                    <button className="product__buy">
+                    <motion.button className="product__buy" onClick={handleAddToCart} whileHover={{ scale: 1.1 }}>
                         <img src={BiShoppingBag} />
                         Comprar
-                    </button>
+                    </motion.button>
                     :
                     <div className="product__quantity">
                         <div className="product__adder">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+                            <button onClick={handleDecrement}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={handleIncrement}>+</button>
                         </div>
                         <span className="product__price">
-                            R$ 200,00
+                            R$ {(product?.price * quantity).toFixed(2).replace(".", ",")}
                         </span>
+                        <button onClick={handleRemoveFromCart}>Remover</button>
                     </div>
 
             }
-        </div>
+        </motion.div>
     )
 }
 
-export default Product
+export default Product;
