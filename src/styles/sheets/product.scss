@@ -21,17 +21,19 @@
         }
 
         .product {
-
             &__image {
                 height: unset;
             }
+
             &__info {
                 height: unset;
                 width: 100%;
             }
+
             &__name {
                 width: 100%;
             }
+
             &__price {
                 color: black;
                 background-color: unset;
@@ -42,7 +44,6 @@
 
     &__name {
         overflow: hidden;
-        // text-overflow: ellipsis;
         display: -webkit-box;
         line-height: 16px;
         max-height: 32px;
@@ -59,7 +60,6 @@
         }
     }
 
-      
     &__info {
         display: flex;
         flex-wrap: wrap;
@@ -160,7 +160,4 @@
         font-size: 15px;
         padding-bottom: 3px;
     }
-
-
-    
 }
