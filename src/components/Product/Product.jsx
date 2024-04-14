@@ -49,6 +49,14 @@ const Product = ({
         console.log('Itens no carrinho:', cart.items)
     }, [cart.items])
 
+    let formattedPrice = "";
+    if (typeof product?.price === 'string') {
+        formattedPrice = parseFloat(product.price).toFixed(2).replace(".", ",")
+        if (formattedPrice.endsWith(",00")) {
+            formattedPrice = formattedPrice.replace(",00", "")
+        }
+    }
+    
     return (
         <motion.div className={`product ${isCart ? "product__cart" : ""}`} whileHover={{ scale: 1.1 }}>
             <div className="product__image">
@@ -64,7 +72,7 @@ const Product = ({
                         ?
                         <>
                             <div className="product__price">
-                                {product?.price}
+                                R$ {formattedPrice}
                             </div>
                             <div className="product__description">
                                 {product?.description}
@@ -91,7 +99,7 @@ const Product = ({
                         <span className="product__price">
                             R$ {(product?.price * quantity).toFixed(2).replace(".", ",")}
                         </span>
-                        <button onClick={handleRemoveFromCart}>Remover</button>
+                        <button className="product__remove" onClick={handleRemoveFromCart}>x</button>
                     </div>
 
             }
