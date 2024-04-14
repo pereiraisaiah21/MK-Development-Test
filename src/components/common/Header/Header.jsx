@@ -46,7 +46,7 @@ const Header = () => {
             </div>
 
             {isOpen && (
-                <motion.div className="cart" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                <motion.div className="cart" id="cart" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                     <header className="cart__header">
                         <span>
                             Carrinho<br /> de compras
