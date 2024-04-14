@@ -16,20 +16,25 @@ import { fetchProducts } from '../../services/api'
  *
  * @returns {JSX.Element} O conteúdo da página renderizado.
  */
-const Home = ({
-    pageTitle,
-    pageDescription,
-    history,
-    match,
-    location
-}) => {
+const Home = () => {
 
     const { data, isLoading, isError } = useQuery('products', fetchProducts)
 
-    console.log(data)
-
     if (isLoading) {
-        return <div>Carregando...</div>
+        return (
+            <div className="home">
+                <div className="home__skeletons">
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                    <div className="home__skeleton"></div>
+                </div>
+            </div>
+        )
     }
 
     if (isError) {

@@ -1,6 +1,15 @@
 import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
-const store = createStore(rootReducer)
+import rootReducer from '../reducers' // ajuste o caminho de importação para correspondência com sua estrutura de pastas
 
-export default store
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = createStore(persistedReducer)
+export const persistor = persistStore(store)

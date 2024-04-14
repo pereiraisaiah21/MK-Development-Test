@@ -5,9 +5,10 @@
     height: 100vh;
     z-index: 100;
     background-color: #0F52BA;
-    width: 486px;
+    max-width: 420px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 9px #333;
 
     &__header {
         color: white;
@@ -38,7 +39,7 @@
     &__products {
         padding: 3rem;
         flex-grow: 1;
-        overflow: scroll;
+        overflow-y: scroll;
     }
 
     &__footer {

@@ -27,12 +27,12 @@ const Header = () => {
     }
 
     const calculateTotal = () => {
+        console.log(cart.items)
         return cart.items.reduce((total, item) => total + (item.price * item.quantity), 0)
     }
 
     return (
         <motion.header className="header" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-
             <div className="header__container">
                 <div className="header__content">
                     <div className="header__logo">
